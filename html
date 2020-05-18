@@ -108,7 +108,24 @@
           errorMessage+="<p>The following field(s) are missing</p>"+ fieldsMissing;
         }
 
+        if(isEmail($('#email').val())==false){
+          errorMessage+= '<p>Your email address is not valid</p>';
+        }
+        if($.isNumeric($('#phone').val())==false){
+          errorMessage+= '<p>Your phone number is not valid</p>';
+        }
+        if($('#password').val() != $('#passwordConfirm').val()){
+          errorMessage+='<p>Your passwords do not match</p>';
+        }
+        if(errorMessage!=''){
+          $('#errorMessage').html(errorMessage);
+        }else{
+          $('#success').show();
+          $('#errorMessage').hide();
+        }
 
+
+      });
 </script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
